@@ -32,7 +32,7 @@ def find_item_price(msg):
     words = msg.split()
     msg = ' '.join(words)
 
-    msg = max(msg.split("#"), key=len)
+    #msg = max(msg.split("#"), key=len)
 
 
     parts = msg.split(':')
@@ -162,7 +162,7 @@ def main():
     price_dicts = sorted(price_dicts, key=lambda k: k['time'], reverse=True) 
 
 
-    with open('prices.csv', mode='w') as f:
+    with open('prices.csv', mode='w', encoding='utf-8') as f:
         fieldnames = ['time', 'channel_id', 'msg_id', 'item', 'price', 'seller_tag','seller_avipart']
         writer = csv.DictWriter(f, fieldnames=fieldnames)
 

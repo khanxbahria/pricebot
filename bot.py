@@ -20,7 +20,7 @@ selfbot = SelfBot()
 def item_from_csv(item, sort_by='time', limit=settings.results_limit):
     found_rows = []
     color = randint(0, 0xffffff)
-    with open('prices.csv') as f:
+    with open('prices.csv', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             if item.lower() in row['item'].lower():
