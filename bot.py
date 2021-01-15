@@ -58,7 +58,7 @@ def item_from_csv(item, sort_by='time', limit=settings.results_limit):
 def create_item_embed(record):
     url = f"https://discord.com/channels/{record['server_id']}/{record['channel_id']}/{record['msg_id']}"
     title = f"{record['query']} - ${record['price']}"
-    embed = discord.Embed(title=title, description=record['item'] + "\n\n" + url, color=record['color'], timestamp=record['timestamp'])
+    embed = discord.Embed(title=title, description=record['item'] + f"\n\n[Show]({url})", color=record['color'], timestamp=record['timestamp'])
     embed.set_author(name=record['seller_tag'], icon_url=record['seller_icon'])
     embed.set_thumbnail(url=record['seller_icon'])
     embed.set_footer(text=f"{record['server_name']} | {record['channel_name']}", icon_url=record['server_icon'])
